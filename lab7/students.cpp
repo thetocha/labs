@@ -20,6 +20,10 @@ Student::Student(const Student &origin){
     id = count;
 };
 
+Student::~Student(){
+    delete[] name;
+}
+
  double Student::AverengeScore(){
 
     return 0;
