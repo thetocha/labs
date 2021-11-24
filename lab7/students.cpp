@@ -1,5 +1,4 @@
 #include "students.h"
-#include "studentAfterFirstTerm.h"
 #include <iostream>
 
 int Student::count = 0;
@@ -20,9 +19,6 @@ Student::Student(const Student &origin){
     id = count;
 };
 
-Student::~Student(){
-    delete[] name;
-}
 
  double Student::AverengeScore(){
 

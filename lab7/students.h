@@ -9,7 +9,6 @@ public:
     static int count;
     Student(char* name, int year, int group, int record_book);
     Student(const Student& origin);
-    ~Student();
     virtual double AverengeScore();
     int GetStudentsId();
     char GetStudentsName();

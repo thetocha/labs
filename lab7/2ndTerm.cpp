@@ -42,6 +42,6 @@ double StudentAfter2ndTerm::AverengeScore(){
         sum += grades_after_2nd_term[i];
     }
     double averenge_score;
-    averenge_score = sum / 9;
+    averenge_score = (double) sum / 9;
     return averenge_score;
 }

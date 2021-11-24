@@ -7,12 +7,17 @@
 using namespace std;
 
 int main(){
-    int grades [4] = {9,10,7,8};
-    int grades1 [5] = {3,4,5,2,6};
+
+
+    int grades[4]={10, 8, 9, 6};
+    int grades1[5]={7, 8, 9, 6, 10};
+    StudentAfter2ndTerm studentAfter2NdTerm("Anton", 2, 3, 34, grades, grades1);
+
+    cout << studentAfter2NdTerm.AverengeScore() << endl;
 
 
     StudentAfter1stTerm student("Anton",3,4,33, grades);
-    StudentAfter2ndTerm studentAfter2NdTerm("Nata",2,4,23,grades,grades1);
+//    StudentAfter2ndTerm studentAfter2NdTerm("Nata",2,4,23,grades,grades1);
     StudentAfter2ndTerm Stud (studentAfter2NdTerm);
     Student student1("dceki", 2 ,3 ,3 );
 
