@@ -1,6 +1,9 @@
 #include "gtest/gtest.h"
 #include "2ndTerm.h"
+#include <vector>
+#include "functions.h"
 
+using namespace std;
 
 TEST(Getgroup,3){
     int grades[4] = {10,8,9,6};
@@ -47,4 +50,59 @@ TEST(AverageScore_For_1stTerm_grades_10_8_9_6, result_8_25){
 TEST(AverageScore_for_Student,result_0){
     Student student("Anton", 2, 3, 34);
     ASSERT_EQ(student.AverengeScore(),0);
+}
+
+TEST(TotalAverageScore, expected_5_45){
+    int grades[4]={10, 8, 9, 6};
+    int grades1[5]={7, 8, 9, 6, 10};
+    Student student("Anton", 2, 3, 34);
+    StudentAfter1stTerm stTerm("Anton", 2, 3, 34, grades);
+    StudentAfter2ndTerm studentAfter2NdTerm("Anton", 2, 3, 34, grades, grades1);
+    vector<Student*> st;
+    st.push_back(&student);
+    st.push_back(&stTerm);
+    st.push_back(&studentAfter2NdTerm);
+    ASSERT_NEAR(TotalAverageScore(st),5.45, 0.01);
+
+}
+
+TEST(AverageScoreForGroup_all_pass, expected_8_18){
+    int grades[4]={10, 8, 9, 6};
+    int grades1[5]={7, 8, 9, 6, 10};
+
+    StudentAfter1stTerm stTerm("Anton", 2, 4, 34, grades);
+    StudentAfter2ndTerm studentAfter2NdTerm("Anton", 2, 4, 34, grades, grades1);
+    vector<Student*> st;
+
+    st.push_back(&stTerm);
+    st.push_back(&studentAfter2NdTerm);
+    ASSERT_NEAR(AverageScoreForGroup(4,st),8.18, 0.01);
+
+}
+
+TEST(AverageScoreForGroup_not_all_pass, expected_8_25){
+    int grades[4]={10, 8, 9, 6};
+    int grades1[5]={7, 8, 9, 6, 10};
+
+    StudentAfter1stTerm stTerm("Anton", 2, 4, 34, grades);
+    StudentAfter2ndTerm studentAfter2NdTerm("Anton", 2, 2, 34, grades, grades1);
+    vector<Student*> st;
+
+    st.push_back(&stTerm);
+    st.push_back(&studentAfter2NdTerm);
+    ASSERT_NEAR(AverageScoreForGroup(4,st),8.25, 0.00000001);
+
+}
+
+TEST(AverageScoreForGroup_noone_pass, expected_0){
+    int grades[4]={10, 8, 9, 6};
+    int grades1[5]={7, 8, 9, 6, 10};
+
+    StudentAfter1stTerm stTerm("Anton", 2, 5, 34, grades);
+    StudentAfter2ndTerm studentAfter2NdTerm("Anton", 2, 2, 34, grades, grades1);
+    vector<Student *> st;
+
+    st.push_back(&stTerm);
+    st.push_back(&studentAfter2NdTerm);
+    ASSERT_ANY_THROW(AverageScoreForGroup(4,st));
 }
