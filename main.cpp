@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iostream>
 
 using namespace std;
 
@@ -7,11 +6,6 @@ class Stack{
     int size;
     int *array= new int[size];
     int top;
-public:
-    Stack() : size(0), top(-1) {}
-    bool IsEmpty() {
-        return !size;
-    }
     void resize(int a) {
         size += a;
         top += a;
