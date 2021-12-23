@@ -2,7 +2,7 @@
 #include <cmath>
 ProperFraction::ProperFraction(int numerator, int denominator) {
     if (denominator == 0 || abs(numerator) > abs(denominator)) {
-        cout << "Try other numerator and denominator" << endl;
+        cerr << "Try other numerator and denominator" << endl;
         exit(1);
     }
     else{
@@ -77,6 +77,7 @@ void ProperFraction::FractionDivisionn(int devider){
 void ProperFraction::FractionDivisionn(ProperFraction devider){
     this -> numerator *= devider.denominator;
     this-> denominator *= devider.numerator;
+    FractionReduction();
 }
 
 
