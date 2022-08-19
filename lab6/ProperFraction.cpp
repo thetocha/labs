@@ -17,7 +17,7 @@ ProperFraction::ProperFraction(const ProperFraction &origin) {
     FractionReduction();
 }
 
-void ProperFraction::FractionReduction() {
+void ProprFraction::FractionReduction() {
     int n = min(abs(numerator), abs(denominator));
     for (int i = n; i > 0; i--){
         if (numerator % i == 0){
